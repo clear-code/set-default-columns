@@ -3,7 +3,7 @@ set-default-columns
 
 Provides ability to set default visibility of columns in the thread pane.
 
-By default, Thunderbird shows following columns for new folders.
+By default, Thunderbird shows following columns for newly detected folders.
 
  * threadCol
  * attachmentCol
