@@ -18,9 +18,13 @@ By default, Thunderbird shows following columns for new folders.
 
 However, even if you want that the "Priority" column is shown for all folders, for all users, there is no way.
 This addon provides a preference entry to customize the list of default visible columns of all folders.
-For example, if you want the column "Priority" is visible by default, then:
+For example, if you want the column "Priority" is visible by default, then you'll put a directive into your MCD configuration file, like:
 
-    lockPref("extensions.set-default-columns@clear-code.com.columns",
-      "priorityCol,...(list of other default columns)...");
+    lockPref("extensions.set-default-columns@clear-code.com.columns", [
+      "priorityCol",
+      "threadCol",
+      ...list of other default columns...
+      "locationCol"
+    ].join(","));
 
 This is mainly designed for corporate-use.
