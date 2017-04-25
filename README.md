@@ -10,6 +10,7 @@ By default, Thunderbird shows following columns for newly detected folders.
  * flaggedCol
  * subjectCol
  * unreadButtonColHeader
+ * correspondentCol
  * senderCol
  * recipientCol
  * junkStatusCol
@@ -26,5 +27,7 @@ For example, if you want the column "Priority" is visible by default, then you'l
       ...list of other default columns...
       "locationCol"
     ].join(","));
+
+And, you'll rearrange default columns via `extensions.set-default-columns@clear-code.com.columns`.
 
 This is mainly designed for corporate-use.
