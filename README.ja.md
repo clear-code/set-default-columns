@@ -28,6 +28,6 @@ set-default-columns
       "locationCol"
     ].join(","));
 
-また、同様の形式で `extensions.set-default-columns@clear-code.com.columns` を設定すると、既定の並び順も変える事ができます。
+また、同様の形式で `extensions.set-default-columns@clear-code.com.order` を設定すると、既定の並び順も変える事ができます。
 
 このアドオンは主に企業利用を想定して開発されています。

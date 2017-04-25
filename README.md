@@ -28,6 +28,6 @@ For example, if you want the column "Priority" is visible by default, then you'l
       "locationCol"
     ].join(","));
 
-And, you'll rearrange default columns via `extensions.set-default-columns@clear-code.com.columns`.
+And, you'll rearrange default columns via `extensions.set-default-columns@clear-code.com.order`. The format of its value is same to `extensions.set-default-columns@clear-code.com.columns`.
 
 This is mainly designed for corporate-use.
