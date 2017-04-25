@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', function setDefaultColumnsSetup(aEve
     aColumns = aColumns.filter(function(aColumn) {
       return Boolean(aColumn);
     });
+    return aColumns;
   }
 
   function visibleColumns() {
