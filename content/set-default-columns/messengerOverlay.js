@@ -28,10 +28,10 @@ window.addEventListener('DOMContentLoaded', function setDefaultColumnsSetup(aEve
   FolderDisplayWidget.prototype.__original__getDefaultColumnsForCurrentFolder = FolderDisplayWidget.prototype._getDefaultColumnsForCurrentFolder;
   FolderDisplayWidget.prototype._getDefaultColumnsForCurrentFolder = function(...aArgs) {
     var defaultColumns = this.__original__getDefaultColumnsForCurrentFolder(...aArgs);
-    if (Prefs.getBoolPref('extensions.set-default-columns@clear-code.com.applyOrder')) {
+    var names = Object.keys(defaultColumns);
+    if (!names.length) {
       return defaultColumns;
     }
-    var names = Object.keys(defaultColumns);
     var numOfUnknownColumns = 0;
     var columns = orderedColumns();
     for (let name of names) {
