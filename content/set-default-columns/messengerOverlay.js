@@ -6,12 +6,43 @@ window.addEventListener('DOMContentLoaded', function setDefaultColumnsSetup(aEve
   var Prefs = Cc['@mozilla.org/preferences;1']
                 .getService(Ci.nsIPrefBranch)
                 .QueryInterface(Ci.nsIPrefBranch2);
-  var columns = decodeURIComponent(escape(Prefs.getCharPref('extensions.set-default-columns@clear-code.com.columns')));
-  columns = columns.trim().split(/[,\s]+/);
-  columns = columns.filter(function(aColumn) {
-    return Boolean(aColumn);
-  });
-  FolderDisplayWidget.prototype.DEFAULT_COLUMNS = columns;
+  function normalizeColumns(aColumns) {
+    aColumns = aColumns.trim().split(/[,\s]+/);
+    aColumns = aColumns.filter(function(aColumn) {
+      return Boolean(aColumn);
+    });
+  }
+
+  function visibleColumns() {
+    var columns = decodeURIComponent(escape(Prefs.getCharPref('extensions.set-default-columns@clear-code.com.columns')));
+    return normalizeColumns(columns);
+  }
+
+  function orderedColumns() {
+    var columns = decodeURIComponent(escape(Prefs.getCharPref('extensions.set-default-columns@clear-code.com.order')));
+    return normalizeColumns(columns);
+  }
+
+  FolderDisplayWidget.prototype.DEFAULT_COLUMNS = visibleColumns();
+
+  FolderDisplayWidget.prototype.__original__getDefaultColumnsForCurrentFolder = FolderDisplayWidget.prototype._getDefaultColumnsForCurrentFolder;
+  FolderDisplayWidget.prototype._getDefaultColumnsForCurrentFolder = function(...aArgs) {
+    var defaultColumns = this.__original__getDefaultColumnsForCurrentFolder(...aArgs);
+    if (Prefs.getBoolPref('extensions.set-default-columns@clear-code.com.applyOrder')) {
+      return defaultColumns;
+    }
+    var names = Object.keys(defaultColumns);
+    var numOfUnknownColumns = 0;
+    var columns = orderedColumns();
+    for (let name of names) {
+      let index = columns.indexOf(name);
+      if (index < 0) {
+        index = columns.length + numOfUnknownColumns++;
+      }
+      defaultColumns[name].ordinal = index;
+    }
+    return defaultColumns;
+  };
 
   window.removeEventListener(aEvent.type, setDefaultColumnsSetup, false);
 }, false);
