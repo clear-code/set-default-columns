@@ -3,7 +3,7 @@ set-default-columns
 
 スレッドペインの既定のカラムを変更する機能を提供します。
 
-初期状態で、Thundebrirdは新しく認識したフォルダについて以下のカラムを表示します。
+初期状態で、Thunderbirdは新しく認識したフォルダについて以下のカラムを表示します。
 
  * threadCol
  * attachmentCol
