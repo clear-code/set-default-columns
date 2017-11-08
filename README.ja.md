@@ -31,3 +31,37 @@ set-default-columns
 また、同様の形式で `extensions.set-default-columns@clear-code.com.order` を設定すると、既定の並び順も変える事ができます。
 
 このアドオンは主に企業利用を想定して開発されています。
+
+備考
+----
+
+カラムリストは以下の通りです。
+
+* threadCol
+* flaggedCol
+* attachmentCol
+* subjectCol
+* unreadButtonColHeader
+* senderCol
+* recipientCol
+* correspondentCol
+* junkStatusCol
+* receivedCol
+* dateCol
+* statusCol
+* sizeCol
+* tagsCol
+* accountCol
+* priorityCol
+* unreadCol
+* totalCol
+* locationCol
+* idCol
+
+指定したカラムが表示されない場合があります。既定では `senderCol` と `recipientCol` カラムは追加の設定を行わないと表示されないようになっています。
+
+これらのカラムを有効にするための設定:
+
+    lockPref("mail.threadpane.use_correspondents", false);
+
+上記の設定により、 `correspondentCol` (通信相手) カラムの代わりに `senderCol` (差出人) カラムが 受信トレイ (`Inbox`)に、`recipientCol` (受信者) カラムが `送信トレイ` (`Sent`)に表示されます。
