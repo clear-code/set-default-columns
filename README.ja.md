@@ -29,6 +29,7 @@ set-default-columns
     ].join(","));
 
 また、同様の形式で `extensions.set-default-columns@clear-code.com.order` を設定すると、既定の並び順も変える事ができます。
+`extensions.set-default-columns@clear-code.com.columns` はあくまで表示するかどうかを指定するもので、`extensions.set-default-columns@clear-code.com.order` を指定しなかった場合の既定の並び順については保証されません。
 
 このアドオンは主に企業利用を想定して開発されています。
 
