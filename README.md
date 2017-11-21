@@ -30,6 +30,8 @@ For example, if you want the column "Priority" is visible by default, then you'l
 
 And, you'll rearrange default columns via `extensions.set-default-columns@clear-code.com.order`. The format of its value is same to `extensions.set-default-columns@clear-code.com.columns`.
 
+Note that there is nothing to do with `extensions.set-default-columns@clear-code.com.order` about order of default columns. Without `extensions.set-default-columns@clear-code.com.order` preference, it is not guaranteed.
+
 This is mainly designed for corporate-use.
 
 Note
