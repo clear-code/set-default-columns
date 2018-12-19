@@ -3,9 +3,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 window.addEventListener('DOMContentLoaded', function setDefaultColumnsSetup(aEvent) {
-  var Prefs = Cc['@mozilla.org/preferences;1']
-                .getService(Ci.nsIPrefBranch)
-                .QueryInterface(Ci.nsIPrefBranch2);
+  const Cc = Components.classes;
+  const Ci = Components.interfaces;
+  const Cu = Components.utils;
+  const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+  const Prefs = Services.prefs;
   function normalizeColumns(aColumns) {
     aColumns = aColumns.trim().split(/[,\s]+/);
     aColumns = aColumns.filter(function(aColumn) {
