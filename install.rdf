@@ -5,7 +5,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="set-default-columns@clear-code.com"
                    em:name="Set Default Columns"
-                   em:version="1.1"
+                   em:version="1.2"
                    em:description="Provides ability to set default visibility of columns in the thread pane."
                    em:creator="ClearCode Inc."
                    em:homepageURL="http://www.clear-code.com/">
